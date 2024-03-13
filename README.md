@@ -1,6 +1,6 @@
 The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
 
-(__TODO__: your project name)
+(__TODO__: final project)
 
 # Shoppy Shoperson 
 
@@ -17,34 +17,44 @@ Shoppy Shoperson is a web app that will allow users to keep track of multiple gr
 
 (__TODO__: a description of your application's data and their relationships to each other) 
 
-The application will store Users, Lists and Items
+The application will store Users, Quotes, and Reflections
 
-* users can have multiple lists (via references)
-* each list can have multiple items (by embedding)
+* users can have multiple quotes (by embedding) and reflections (via references)
+* reflections can have multiple quotes (via references)
 
 (__TODO__: sample documents)
 
-An Example User:
+An Example User with quotes embeded:
 
 ```javascript
 {
-  username: "shannonshopper",
+  username: "user",
   hash: // a password hash,
-  lists: // an array of references to List documents
+  reflections: // an array of references to Reflections documents
+  quotes: [
+    { surah: " ", verseNo: " ", ayat: "", catagories: []},
+    { surah: " ", verseNo: " ", ayat: "", catagories: []},
+  ], //embeded
+  
 }
 ```
 
-An Example List with Embedded Items:
+An Example Reflections with reference to Quotes:
 
 ```javascript
 {
   user: // a reference to a User object
-  name: "Breakfast foods",
-  items: [
-    { name: "pancakes", quantity: "9876", checked: false},
-    { name: "ramen", quantity: "2", checked: true},
-  ],
+  quotes: // an array of references to Quotes documents
   createdAt: // timestamp
+}
+```
+An Example Quotes:
+
+```javascript
+{
+  surah: " ",
+  verseNo: " ",
+  catagories: []
 }
 ```
 
@@ -57,15 +67,19 @@ An Example List with Embedded Items:
 
 (__TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc.)
 
-/list/create - page for creating a new shopping list
+/home - page for creating a new shopping list
 
 ![list create](documentation/list-create.png)
 
-/list - page for showing all shopping lists
+/categories - page for showing all shopping lists
 
 ![list](documentation/list.png)
 
-/list/slug - page for showing specific shopping list
+/categories/quotes - page for showing specific shopping list
+
+![list](documentation/list-slug.png)
+
+/reflections - page for showing specific shopping list
 
 ![list](documentation/list-slug.png)
 
@@ -80,11 +94,12 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 (__TODO__: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://en.wikipedia.org/wiki/Use_case))
 
 1. as non-registered user, I can register a new account with the site
-2. as a user, I can log in to the site
-3. as a user, I can create a new grocery list
-4. as a user, I can view all of the grocery lists I've created in a single list
-5. as a user, I can add items to an existing grocery list
-6. as a user, I can cross off items in an existing grocery list
+2. as non-registered user, I can register view quotes
+3. as a user, I can log in to the site
+4. as a user, I can add new quotes
+5. as a user, I can view all the quotes
+6. as a user, I can add reflections to quotes
+7. as a user, I can delete reflections
 
 ## Research Topics
 
