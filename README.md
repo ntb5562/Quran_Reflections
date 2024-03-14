@@ -90,7 +90,7 @@ An Example Quotes:
 
 (**TODO**: draw out a site map that shows how pages are related to each other)
 
-[site map](documentation/siteflow.png)
+![site map](documentation/siteflow.png)
 
 ## User Stories or Use Cases
 
@@ -112,7 +112,7 @@ An Example Quotes:
   - I will be using Grunt
   - (2 points) Integrate ESLint into your workflow
 
-10 points total out of 8 required points (**\_TODO**: addtional points will **not** count for extra credit)
+13 points total out of 10 required points (**\_TODO**: addtional points will **not** count for extra credit)
 
 ## [Link to Initial Main Project File](app.mjs)
 
