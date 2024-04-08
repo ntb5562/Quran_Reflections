@@ -43,7 +43,7 @@ An Example Reflections with reference to Quotes:
 ```javascript
 {
   user: // a reference to a User object
-  quotes: // an array of references to Quotes documents
+  quotes: [] // an array of references to Quotes documents
   createdAt: // timestamp
 }
 ```
