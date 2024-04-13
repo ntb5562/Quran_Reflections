@@ -1,0 +1,11 @@
+.form {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.message{
+  color: red;
+  margin-top: 10px;
+}
