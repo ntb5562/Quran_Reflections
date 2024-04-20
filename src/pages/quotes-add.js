@@ -16,7 +16,15 @@ export default function QuotesAdd() {
     const formData = new FormData(event.target)
     const response = await fetch('/api/quotes-add', {
       method: 'POST',
-      body: formData,
+      headers: {
+        "Content-type":"application/json",
+      },
+      body: JSON.stringify({
+        surah,
+        verse,
+        themes,
+        quote,
+      }),
     })
 
     // Handle response if necessary
