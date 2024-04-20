@@ -28,7 +28,7 @@ An Example User with quotes embeded:
 ```javascript
 {
   username: "user",
-  hash: // a password hash,
+  // hash: // a password hash,
   reflections: // an array of references to Reflections documents
   quotes: [
     { surah: " ", verseNo: " ", ayat: "", themes: []},
@@ -42,9 +42,8 @@ An Example Reflections with reference to Quotes:
 
 ```javascript
 {
-  user: // a reference to a User object
-  quotes: [] // an array of references to Quotes documents
-  createdAt: // timestamp
+  // a reference to a User object
+  user: quotes: []; // an array of references to Quotes documents
 }
 ```
 
