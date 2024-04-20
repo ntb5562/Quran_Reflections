@@ -5,6 +5,8 @@ import { useState } from "react";
 
 export default function QuotesAdd() {
   const [state,setState] = useState('');
+  const [surah, setSurah] = useState('');
+  const [verse, setVerse] = useState(0);
   const [themes, setThemes] = useState([]);
   const [quote, setQuote] = useState('');
   
@@ -24,12 +26,13 @@ export default function QuotesAdd() {
 
   }
   return (
-    
     <form className={quoteStyles.form} onSubmit={onSubmit} >
 
       <div className={quoteStyles.message}>{state.message}</div> {/*message saying form submitted*/}
-      
+
       {/* setting themes and quote to the values entered to the form */}
+      <input onChange={(e)=>setSurah(e.target.value)} value={surah} type="text" name="surah" placeholder="Surah"></input>
+      <input onChange={(e)=>setVerse(e.target.value)} value={verse} type="text" name="verse" placeholder="verse #"></input>
       <input onChange={(e)=>setThemes(e.target.value)} value={themes} type="text" name="themes" placeholder="theme"></input>
       <textarea onChange={(e)=>setQuote(e.target.value)} value={quote} type="text" name="quote" placeholder="enter quote"/>
       <button type="submit">Submit</button>
