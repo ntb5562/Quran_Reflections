@@ -1,31 +1,36 @@
 //https://nextjs.org/docs/pages/building-your-application/data-fetching/forms-and-mutations
 
 import Head from "next/head";
-import quoteStyles from '@/styles/Quotes.module.css'
-
+import Quote from '@/components/Quote'
 import { useState, useEffect } from "react";
+import Navbar from "@/components/Navbar";
 
 export default function Quotes() {
-  const [data, setData] = useState(null)
+  const [entries, setEntries] = useState(null)
   const [isLoading, setLoading] = useState(true)
- 
+
+ //ajax interaction: displaying all quotes
   useEffect(() => {
+    setLoading(true);
     fetch('/api/quotes')
       .then((res) => res.json())
       .then((data) => {
-        console.log(data[0].surah)
-        setData(data)
+        setEntries(data.results)
         setLoading(false)
       })
   }, [])
-  console.log(data)
-  // if (isLoading) return <p>Loading...</p>
-  // if (!data) return <p>No profile data</p>
+  if (isLoading) return <p>Loading...</p>
+  if (!entries) return <p>No profile data</p>
   return (
     <>
-    <div className="quote">
-      
-    </div>
+    <Navbar></Navbar>
+     <div className="">
+        {
+          entries?.map((entry) =>
+            <Quote key = {entry._id} entry={entry}/>
+          )
+        }
+      </div>
     </>
   )
 }

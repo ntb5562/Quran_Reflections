@@ -8,6 +8,7 @@ module.exports = {
         'mocha': true,
     },
     'extends': 'eslint:recommended',
+    "parser": "babel-eslint",
     'parserOptions': {
         'ecmaVersion': 'latest',
         'sourceType': 'module'

@@ -1,0 +1,35 @@
+.header{
+  text-align: center;
+  margin-top: 100px;
+}
+
+.div{
+  width: 600px;
+  position: absolute;
+    top: 25%;
+    left: 25%;
+  border: 1px solid gray;
+}
+
+.form {
+  
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  
+}
+.form input {
+  
+  margin: 5px;
+}
+
+.form textarea{
+  padding-bottom: 20px;
+  margin: 5px;
+}
+
+.message{
+  color: rgb(14, 122, 12);
+  margin-top: 10px;
+}

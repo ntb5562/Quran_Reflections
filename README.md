@@ -2,7 +2,7 @@ The content below is an example project proposal / requirements document. Replac
 
 (**TODO**: final project)
 
-# Qur'anic Reflections
+# Qur’ānic Reflections
 
 ## Overview
 
