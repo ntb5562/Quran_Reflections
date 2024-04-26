@@ -9,13 +9,13 @@ export default async function handler(req, res) {
    
     await connectDB();
 
-    const entries = await Quote.findOne({quote:quote}).exec();
+    const entry = await Quote.findOne({quote:quote}).exec();
 
     console.log("quotes search found");
-    res.status(200).json(entries);
+    res.status(200).json(entry);
   }catch(error){
     console.log(error)
-    console.log("quote search failed");
+    res.status(500).json({message:"could not find quote"});
   }
   
 }

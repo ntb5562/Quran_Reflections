@@ -16,25 +16,33 @@ export default function QuotesAdd() {
     event.preventDefault()
  
     const formData = new FormData(event.target)
-
-    const response = await fetch('/api/quotes-add', {
-      method: 'POST',
-      headers: {
-        "Content-type":"application/json",
-      },
-      body: JSON.stringify({
-        surah,
-        verse,
-        themes,
-        quote,
-        reflection,
-      }),
-    })
-    
-    // Handle response if necessary
-    const id = await response.json()
-    setState(id);
-    window.location.href="./quotes";
+      try {
+      const response = await fetch('/api/quotes-add', {
+        method: 'POST',
+        headers: {
+          "Content-type":"application/json",
+        },
+        body: JSON.stringify({
+          surah,
+          verse,
+          themes,
+          quote,
+          reflection,
+        }),
+      })
+      if (response.ok) {
+        // Handle response if necessary
+        const id = await response.json()
+        setState(id);
+        window.location.href="./quotes";
+      } else {
+        const errorResponse = await response.json();
+        
+        console.log(errorResponse.message)
+      }
+    } catch (e) {
+      console.log(e);
+    }
   }
   return (
     //form 1
@@ -54,6 +62,10 @@ export default function QuotesAdd() {
       <button className= "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" type="submit">Submit</button>
 
       </form>
+      {
+        errorMessage &&
+        <p>{errorMessage}</p>
+      }
     </div>
     </>
     

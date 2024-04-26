@@ -9,6 +9,7 @@ export default async function handler(req, res) {
   console.log(reflection);
   const id = {message:"Quote added",surah, verse, quote, themes,reflection};
   try {
+    
     await connectDB();
     let user = await User.findOne({ip: req?.socket?.remoteAddress });
     if (!user) {
@@ -27,5 +28,6 @@ export default async function handler(req, res) {
     res.status(200).json(id);
   }catch (error){
     console.log("error added quote:" + error);
+    res.status(500).json({message:"not added"})
   }
 }
