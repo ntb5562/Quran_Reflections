@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 export default function Quotes() {
   const [entry, setEntries] = useState(null)
   const [quote, setQuote] = useState('');
+  const [state, setState] = useState('');
 
   async function onSubmit(event) {
     event.preventDefault()
@@ -22,11 +23,15 @@ export default function Quotes() {
         quote,
       }),
     })
+    if(response.ok){
+      const result = await response.json();
+      setEntries(result);
+    }else{
+      const error = await response.json();
+      setState(error)
+
+    }
     
-    // Handle response if necessary
-    const result = await response.json()
-    setEntries(result);
-    console.log(result);
   }
 
 
@@ -41,6 +46,12 @@ export default function Quotes() {
      <div className="">
         { entry &&
           <Quote key = {entry._id} entry={entry}/>
+        }
+      </div>
+
+      <div className="">
+        { state &&
+          <h2>{state.message}</h2>
         }
       </div>
     </>

@@ -1,5 +1,4 @@
 import mongoose, {Schema} from "mongoose";
-// import Quotes from "./quotesDB";
 
 const UserSchema = new Schema({
   ip: String,

@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     res.status(200).json(entry);
   }catch(error){
     console.log(error)
-    res.status(500).json({message:"could not find quote"});
+    res.status(500).json({message:"Could not find the quote"});
   }
   
 }

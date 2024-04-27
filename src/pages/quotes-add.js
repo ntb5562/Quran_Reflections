@@ -11,12 +11,10 @@ export default function QuotesAdd() {
   const [themes, setThemes] = useState([]);
   const [quote, setQuote] = useState('');
   const [reflection, setReflection] = useState('');
-  
   async function onSubmit(event) {
     event.preventDefault()
  
     const formData = new FormData(event.target)
-      try {
       const response = await fetch('/api/quotes-add', {
         method: 'POST',
         headers: {
@@ -31,18 +29,13 @@ export default function QuotesAdd() {
         }),
       })
       if (response.ok) {
-        // Handle response if necessary
         const id = await response.json()
         setState(id);
         window.location.href="./quotes";
       } else {
         const errorResponse = await response.json();
-        
-        console.log(errorResponse.message)
+        setState(errorResponse);
       }
-    } catch (e) {
-      console.log(e);
-    }
   }
   return (
     //form 1
@@ -60,13 +53,9 @@ export default function QuotesAdd() {
       <textarea onChange={(e)=>setQuote(e.target.value)} value={quote} type="text" name="quote" placeholder="enter quote"/>
       <textarea onChange={(e)=>setReflection(e.target.value)} value={reflection} type="text" name="reflections" placeholder="enter reflections"/>
       <button className= "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" type="submit">Submit</button>
-
       </form>
-      {
-        errorMessage &&
-        <p>{errorMessage}</p>
-      }
     </div>
+
     </>
     
     

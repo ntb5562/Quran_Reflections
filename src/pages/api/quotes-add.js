@@ -16,9 +16,6 @@ export default async function handler(req, res) {
       user = new User({ ip: req?.socket?.remoteAddress, quotes: []});
     }
     const savedRef = await Reflection.create({text:reflection});
-    
-    console.log(savedRef.createdAt); //getting undefined
-
     const savedQuote = new Quote({surah,verse,quote,themes});
     savedQuote.reflections=savedRef;
     await savedQuote.save();

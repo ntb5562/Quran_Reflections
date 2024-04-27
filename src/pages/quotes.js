@@ -25,14 +25,14 @@ export default function Quotes() {
   <>
     <Navbar></Navbar>
      <h2>Please add quotes first</h2>
-     <Link href="/quotes-add"></Link>
+     <Link href="/quotes-add">Click to add quote</Link>
     </>
   )
   return (
     <>
     <Navbar></Navbar>
      <div className="">
-        {
+        {entries &&
           entries?.map((entry) =>
             <Quote key = {entry._id} entry={entry}/>
           )
