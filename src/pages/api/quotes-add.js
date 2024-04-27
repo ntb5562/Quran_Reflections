@@ -11,9 +11,9 @@ export default async function handler(req, res) {
   try {
     
     await connectDB();
-    let user = await User.findOne({ip: req?.socket?.remoteAddress });
+    let user = await User.findOne({ip: req?.connection?.remoteAddress });
     if (!user) {
-      user = new User({ ip: req?.socket?.remoteAddress, quotes: []});
+      user = new User({ ip: req?.connection?.remoteAddress, quotes: []});
     }
     const savedRef = await Reflection.create({text:reflection});
     const savedQuote = new Quote({surah,verse,quote,themes});

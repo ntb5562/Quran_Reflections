@@ -6,8 +6,7 @@ import User from "@/models/userDB";
 export default async function handler(req, res) {
   try{
     await connectDB();
-    
-    const user = await User.findOne({ip: req?.socket?.remoteAddress}).populate('quotes').exec();
+    const user = await User.findOne({ip: req?.connection?.remoteAddress}).populate('quotes').exec();
     console.log("quotes found");
     res.status(200).json({results: user?.quotes });
 
