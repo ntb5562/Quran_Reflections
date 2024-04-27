@@ -11,6 +11,7 @@ export default function QuotesAdd() {
   const [themes, setThemes] = useState([]);
   const [quote, setQuote] = useState('');
   const [reflection, setReflection] = useState('');
+ 
   async function onSubmit(event) {
     event.preventDefault()
  
